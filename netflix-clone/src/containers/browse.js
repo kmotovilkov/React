@@ -6,6 +6,7 @@ import {Card, Header, Loading, Player} from "../components";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
 import {FooterContainer} from "./footer";
+import {HeaderButton} from "../components/player/styles/player";
 
 
 export function BrowseContainer({slides}) {
@@ -37,6 +38,7 @@ export function BrowseContainer({slides}) {
         } else {
             setSlideRows(slides[category]);
         }
+
     }, [searchTerm]);
 
 
@@ -78,7 +80,11 @@ export function BrowseContainer({slides}) {
                         projects in a
                         futile attempt to feel like he's part of the world around him.
                     </Header.Text>
-                    <Header.PlayButton>Play</Header.PlayButton>
+                    {/*<Header.PlayButton>Play</Header.PlayButton>*/}
+                    <Player>
+                        <Player.HeaderButton/>
+                        <Player.Video src="/videos/bunny.mp4"/>
+                    </Player>
                 </Header.Feature>
             </Header>
             <Card.Group>

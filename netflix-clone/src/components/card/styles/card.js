@@ -13,6 +13,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
+  
 
   > ${Title} {
     @media (max-width: 1000px) {
@@ -61,6 +62,7 @@ export const Text = styled.p`
 export const Entities = styled.div`
   display: flex;
   flex-direction: row;
+  
 `;
 
 export const Meta = styled.div`
@@ -84,7 +86,7 @@ export const Image = styled.img`
 export const Item = styled.div`
   display: flex;
   flex-direction: column;
-  margin-right: 5px;
+  margin-right: 10px;
   position: relative;
   cursor: pointer;
   transition: transform 0.2s;
@@ -94,7 +96,7 @@ export const Item = styled.div`
     z-index: 99;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1000px) {
     &:hover ${Meta}, &:hover ${Text}, &:hover ${SubTitle} {
       display: block;
       z-index: 100;

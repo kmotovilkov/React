@@ -1,24 +1,24 @@
 import styled from 'styled-components/macro';
-import { Link as ReachRouterLink } from 'react-router-dom';
+import {Link as ReachRouterLink} from 'react-router-dom';
 
 export const Background = styled.div`
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)), 
-  url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)), url(${({src}) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover
     no-repeat;
 
   @media (max-width: 1100px) {
-    ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`}
+    ${({dontShowOnSmallViewPort}) => dontShowOnSmallViewPort && `background: none;`}
   }
 `;
 
 export const Container = styled.div`
-  display: flex;
+  display: flex!important;
   margin: 0 56px;
-  height: 64px;
+  height: 100px;
   justify-content: space-between;
   align-items: center;
+  flex-direction:row;
 
   a {
     display: flex;
@@ -28,12 +28,29 @@ export const Container = styled.div`
     margin: 0 30px;
   }
 `;
+export const ButtonLink = styled(ReachRouterLink)`
+  display: inline-block!important;
+  background-color: #e50914;
+  width: 84px;
+  height: fit-content;
+  color: white;
+  border: 0;
+  font-size: 15px;
+  border-radius: 3px;
+  padding: 8px 17px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left:auto;
+  &:hover {
+    background: #f40612;
+  }
+`;
 
 export const Link = styled.p`
   color: #fff;
   text-decoration: none;
   margin-right: 30px;
-  font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
+  font-weight: ${({active}) => (active === 'true' ? '700' : 'normal')};
   cursor: pointer;
 
   &:hover {
@@ -58,10 +75,10 @@ export const SearchInput = styled.input`
   height: 30px;
   font-size: 14px;
   border-radius: 4px;
-  margin-left: ${({ active }) => (active === true ? '10px' : '0')};
-  padding: ${({ active }) => (active === true ? '0 10px' : '0')};
-  opacity: ${({ active }) => (active === true ? '1' : '0')};
-  width: ${({ active }) => (active === true ? '200px' : '0px')};
+  margin-left: ${({active}) => (active === true ? '10px' : '0')};
+  padding: ${({active}) => (active === true ? '0 10px' : '0')};
+  opacity: ${({active}) => (active === true ? '1' : '0')};
+  width: ${({active}) => (active === true ? '200px' : '0px')};
 
   &:focus {
     background-color: rgba(0, 0, 0, 0.8);
@@ -100,27 +117,9 @@ export const SearchIcon = styled.button`
   }
 `;
 
-export const ButtonLink = styled(ReachRouterLink)`
-  display:inline-block;
-  background-color: #e50914;
-  width: 84px;
-  height: fit-content;
-  color: white;
-  border: 0;
-  font-size: 15px;
-  border-radius: 3px;
-  padding: 8px 17px;
-  cursor: pointer;
-  text-decoration: none;
- 
-
-  &:hover {
-    background: #f40612;
-  }
-`;
 
 export const Picture = styled.button`
-  background: url(${({ src }) => src});
+  background: url(${({src}) => src});
   background-size: contain;
   border: 0;
   width: 32px;
@@ -142,10 +141,11 @@ export const Dropdown = styled.div`
   }
 
   ${Group} {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 
     &:last-of-type {
       margin-bottom: 0;
+    
     }
 
     ${Link} {
@@ -165,6 +165,7 @@ export const Dropdown = styled.div`
     font-size: 12px;
     margin-bottom: 0;
     margin-top: 0;
+    text-align:center;
   }
 `;
 
@@ -212,8 +213,8 @@ export const Text = styled.p`
 `;
 
 export const Logo = styled.img`
-  height: 32px;
-  width: 108px;
+  height: 36px;
+  width: 134px;
   margin-right: 40px;
 
   @media (min-width: 1449px) {

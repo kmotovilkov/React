@@ -17,7 +17,8 @@ import {
     Search,
     SearchIcon,
     SearchInput,
-    PlayButton
+    PlayButton,
+
 } from "./styles/header";
 
 export default function Header({bg = true, children, ...restProps}) {
@@ -49,7 +50,7 @@ Header.Group = function HeaderGroup({children, ...restProps}) {
     return <Group{...restProps}>{children}</Group>;
 };
 Header.ButtonLink = function HeaderButtonLink({children, ...restProps}) {
-    return <ButtonLink{...restProps}>{children}</ButtonLink>;
+    return <ButtonLink {...restProps}>{children}</ButtonLink>;
 };
 Header.Logo = function HeaderLogo({to, ...restProps}) {
     return (<ReactRouterLink to={to}><Logo {...restProps}/></ReactRouterLink>);

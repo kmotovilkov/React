@@ -1,6 +1,6 @@
 import React, {useState, useContext, createContext} from "react";
 import ReactDOM from "react-dom";
-import {Container, Button, Overlay, Inner, Close} from "./styles/player";
+import {Container, Button, Overlay, Inner, Close, HeaderButton} from "./styles/player";
 
 export const PlayerContext = createContext();
 
@@ -36,5 +36,14 @@ Player.Button = function PlayerButton({ ...restProps }) {
         <Button onClick={() => setShowPlayer((showPlayer) => !showPlayer)} {...restProps}>
             Play
         </Button>
+    );
+};
+Player.HeaderButton = function PlayerHeaderButton({ ...restProps }) {
+    const { showPlayer, setShowPlayer } = useContext(PlayerContext);
+
+    return (
+        <HeaderButton onClick={() => setShowPlayer((showPlayer) => !showPlayer)} {...restProps}>
+            Play
+        </HeaderButton>
     );
 };
