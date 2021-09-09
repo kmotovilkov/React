@@ -41,18 +41,18 @@ class SignUpForm extends Component {
                     <div className="mb-3">
                         <label htmlFor="inputEmail" className="form-label">Email address</label>
                         <input type="email" onChange={this.handleChange} data-name="email" className="form-control"
-                               id="inputEmaill" aria-describedby="emailHelp"/>
+                               id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email"/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="inputPassword" className="form-label">Password</label>
                         <input type="password" onChange={this.handleChange} data-name="password"
                                className="form-control"
-                               id="inputPassword"/>
+                               id="inputPassword" placeholder="Enter password"/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="inputUsername" className="form-label">Username</label>
                         <input type="text" onChange={this.handleChange} data-name="name" className="form-control"
-                               id="inputUsername"/>
+                               id="inputUsername" placeholder="Enter username"/>
                     </div>
                     <button type="button" onClick={this.handleSubmit} className="btn btn-primary">Submit</button>
                 </form>

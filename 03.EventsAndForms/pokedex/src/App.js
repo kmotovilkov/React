@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import SignUpForm from "./components/SignUpForm";
 import LoginForm from "./components/LoginForm";
+import LoggedInScreen from "./components/logged-in/LoggedInScreen";
 
 class App extends Component {
     constructor() {
@@ -18,6 +19,7 @@ class App extends Component {
 
         this.showComponent = this.showComponent.bind(this);
         this.formSwitch = this.formSwitch.bind(this);
+        this.setLoggedIn = this.setLoggedIn.bind(this);
     }
 
     formSwitch() {
@@ -34,15 +36,15 @@ class App extends Component {
 
     showComponent() {
         if (this.state.route === 'login') {
-            return <LoginForm/>;
+            return <LoginForm setLoggedIn={this.setLoggedIn}/>;
         } else if (this.state.route === 'loggedIn') {
-            return <h1>Logged In!</h1>;
+            return <LoggedInScreen/>;
         }
         return <SignUpForm/>;
     }
 
     setLoggedIn() {
-        this.setState()
+        this.setState({route: 'loggedIn'})
     }
 
     render() {

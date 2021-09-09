@@ -34,7 +34,7 @@ class LoginForm extends Component {
             .then(res => {
                 if (res.success && res.token) {
                     localStorage.setItem('token', res.token)
-                    console.log('ASDASDASD')
+                    this.props.setLoggedIn();
                 }
             }).catch(error => console.log(error));
     }
@@ -47,13 +47,13 @@ class LoginForm extends Component {
                     <div className="mb-3">
                         <label htmlFor="inputEmail" className="form-label">Email address</label>
                         <input type="email" onChange={this.handleChange} data-name="email" className="form-control"
-                               id="inputEmaill" aria-describedby="emailHelp"/>
+                               id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email"/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="inputPassword" className="form-label">Password</label>
                         <input type="password" onChange={this.handleChange} data-name="password"
                                className="form-control"
-                               id="inputPassword"/>
+                               id="inputPassword" placeholder="Enter password"/>
                     </div>
                     <button type="button" onClick={this.handleSubmit} className="btn btn-primary">Submit</button>
                 </form>
