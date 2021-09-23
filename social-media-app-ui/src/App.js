@@ -1,13 +1,12 @@
-
+import Home from "./pages/home/Home";
 
 
 function App() {
-  return (
-    <div >
-      Hello
-
-    </div>
-  );
+    return (
+        <div>
+            <Home/>
+        </div>
+    );
 }
 
 export default App;
