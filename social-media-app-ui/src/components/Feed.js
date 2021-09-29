@@ -1,6 +1,6 @@
 import React from "react";
 import '../styles/feed.css';
-import {} from "@mui/icons-material";
+import {Posts} from "../../src/profileData";
 import Share from "./Share";
 import Post from "./Post";
 
@@ -8,7 +8,9 @@ export default function Feed() {
     return (<div className="feed">
         <div className="feedWrapper">
             <Share/>
-            <Post/>
+            {Posts.map((post) => (
+                <Post key={post.id} post={post}/>
+            ))}
         </div>
     </div>);
 }

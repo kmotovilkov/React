@@ -1,5 +1,7 @@
 import React from "react";
 import '../styles/sidebar.css';
+import Friends from "./Friends";
+import {Users} from "../profileData";
 import {
     Bookmark,
     Chat,
@@ -57,30 +59,7 @@ export default function Sidebar() {
             <button className="sidebarButton">Show More</button>
             <hr className="sidebarHr"/>
             <ul className="sidebarFriendList">
-                <li className="sidebarFriend">
-                    <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg"/>
-                    <span className="sidebarFrienName">John Doe</span>
-                </li>
-                <li className="sidebarFriend">
-                    <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg"/>
-                    <span className="sidebarFrienName">John Doe</span>
-                </li>
-                <li className="sidebarFriend">
-                    <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg"/>
-                    <span className="sidebarFrienName">John Doe</span>
-                </li>
-                <li className="sidebarFriend">
-                    <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg"/>
-                    <span className="sidebarFrienName">John Doe</span>
-                </li>
-                <li className="sidebarFriend">
-                    <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg"/>
-                    <span className="sidebarFrienName">John Doe</span>
-                </li>
-                <li className="sidebarFriend">
-                    <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg"/>
-                    <span className="sidebarFrienName">John Doe</span>
-                </li>
+                {Users.map(user => (<Friends key={user.id} user={user}/>))}
             </ul>
         </div>
     </div>);
