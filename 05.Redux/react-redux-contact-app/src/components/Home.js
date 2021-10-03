@@ -1,10 +1,16 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {useSelector} from "react-redux";
+import { Link } from 'react-router-dom';
+import {toast} from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const Home = () => {
     const contacts = useSelector(state => state);
+    const dispatch = useDispatch();
+    const deleteContact = (id) => {
+        dispatch({ type: "DELETE_CONTACT", payload:id });
+        toast.success("Delete contact successfully");
+    };
 
     return (
         <div className="container">
@@ -15,16 +21,16 @@ const Home = () => {
 
                 <table className="table table-hover">
                     <thead className="text-white bg-dark text-center">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Action</th>
-                    </tr>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Action</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    {contacts.map((contact, id) => (
+                        {contacts.map((contact, id) => (
                             <tr key={id}>
                                 <td>{id + 1}</td>
                                 <td>{contact.name}</td>
@@ -32,11 +38,11 @@ const Home = () => {
                                 <td>{contact.phone}</td>
                                 <td>
                                     <Link to={`edit/${contact.id}`} className="btn btn-small btn-primary me-3">Edit</Link>
-                                    <button  className="btn btn-small btn-danger">Delete</button>
+                                    <button className="btn btn-small btn-danger" onClick={() => deleteContact(contact.id)}>Delete</button>
                                 </td>
                             </tr>
                         )
-                    )}
+                        )}
                     </tbody>
                 </table>
             </div>

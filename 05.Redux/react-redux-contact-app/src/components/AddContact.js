@@ -15,25 +15,28 @@ const AddContact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const checkEmail = contacts.find((con) => con.email === email && email);
-        const checkPhone = contacts.find((con) => con.phone === parseInt(phone));
-
-        if (!email || !name || !phone) {
-            return toast.warning("Please fill in all fields!");
-        }
-
-        if (checkEmail) {
-            return toast.error("This email already exists");
-        }
-        if (checkPhone) {
-            return toast.error("This phone already exists");
-        }
+        const checkContactEmailExists = contacts.filter((contact) =>
+        contact.email === email ? contact : null
+      );
+      const checkContactPhoneExists = contacts.filter((contact) =>
+        contact.phone === phone ? contact : null
+      );
+  
+      if (!email || !name || !phone) {
+        return toast.warning("Please fill in all fields!!");
+      }
+      if (checkContactEmailExists.length > 0) {
+        return toast.error("This email already exists!!");
+      }
+      if (checkContactPhoneExists.length > 0) {
+        return toast.error("This phone number already exists!!");
+      }
         const data = {
             id: contacts[contacts.length - 1].id + 1,
             name,
             email,
             phone
-        }
+        };
 
         dispatch({type: "ADD_CONTACT", payload: data});
         toast.success("Student added successfully");
