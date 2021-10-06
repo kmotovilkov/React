@@ -19,7 +19,7 @@ export default function Rightbar({profile}) {
                 </ul>
             </>
         );
-    }
+    };
 
     const ProfileRightbar = () => {
         return (<>
@@ -63,7 +63,7 @@ export default function Rightbar({profile}) {
                 </div>
             </>
         );
-    }
+    };
 
     return (<div className="rightbar">
         <div className="rightbarWrapper">
